@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
  gem 'like', '~> 0.2.1'
 
  gem "figaro"
+ gem 'pg_search'
 
 
 group :development, :test do
