@@ -13,10 +13,9 @@ Project is created with:
 * like version: 0.2.1
 
 ## Features 
-	Provides endpoint for
-	* logins and signup
-	* user data
-	* users list
-	* users favourite things
-	* liking favourite things
-	
+Provides endpoint for
+* logins and signup
+* user data
+* users list
+* users favourite things
+* liking favourite things
