@@ -97,5 +97,61 @@ describe "POST #create" do
 
 
     
-end
+  end
+
+
+
+  describe "DELETE #destroy" do
+
+    before do 
+      favourite_thing = create :favourite_thing, name: "dog", user: @user
+
+      create :favourite_thing_type, name: "eskimo", id: 4, favourite_thing: favourite_thing
+
+    end
+    
+    context "when user is not authenticated" do
+      it "returns http status unauthorized" do
+        delete '/api/v1/favourite_thing_types/4'
+        expect(response).to have_http_status(:unauthorized)  
+      end
+
+    end
+
+    context "when user is authenticated," do
+      context "and favourite_thing was found" do
+
+        before do 
+          
+          delete '/api/v1/favourite_thing_types/4', headers: @headers
+         
+        end
+
+
+        it "returns http status no content" do
+         
+         expect(response).to have_http_status(:no_content)
+        end
+
+        it "delete the favourite thing" do
+         
+          expect(FavouriteThingType.find_by_id(4)).to eq(nil)
+        end
+        
+      end
+
+
+      context "and favourite thing could not be found" do
+        it "returns http status not_found" do
+          delete '/api/v1/favourite_thing_types/24', headers: @headers
+          expect(response).to have_http_status(:not_found)  
+        end
+        
+      end
+      
+      
+      
+    end
+    
+  end
 end

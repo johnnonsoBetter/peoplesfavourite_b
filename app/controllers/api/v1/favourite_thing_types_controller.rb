@@ -1,5 +1,7 @@
 class Api::V1::FavouriteThingTypesController < ApplicationController
-    before_action :authenticate_api_v1_user!, :find_favourite_thing, only: :create
+    before_action :authenticate_api_v1_user!, only: [:create, :destroy]
+    before_action :find_favourite_thing, only: :create 
+    before_action :find_favourite_thing_type, only: :destroy
 
     def create 
 
@@ -17,11 +19,24 @@ class Api::V1::FavouriteThingTypesController < ApplicationController
 
     end
 
+    def destroy 
+
+        @favourite_thing_type.destroy
+    end
+
     private 
 
     def favourite_thing_type_param
         params.require(:favourite_thing_type).permit(:name)
     end
+
+    def find_favourite_thing_type
+        @favourite_thing_type = FavouriteThingType.find_by_id(params[:id])
+
+        unless @favourite_thing_type 
+            render json: "Could not find favourite thing", status: :not_found
+        end
+    end 
 
     def find_favourite_thing 
         @favourite_thing = current_api_v1_user.favourite_things.find_by_id(params[:favourite_thing_id])
