@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
  gem 'devise_token_auth'
 
  gem 'devise'
- gem 'like', '~> 0.2.1'
+ gem "socialization"
 
  gem "figaro"
  gem 'pg_search'
@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'simplecov', require: false, group: :test
   gem 'shoulda-matchers'
+  gem 'kaminari'
 end
 
 group :development do

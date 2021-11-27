@@ -10,7 +10,7 @@ Project is created with:
 * pg_search  version: 2.3.5
 * RSpec version: 5.0.2
 * devise_token_auth version: 1.2.0
-* like version: 0.2.1
+* socialization version: 1.2.3
 
 ## Features 
 Provides endpoint for
