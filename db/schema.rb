@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_171533) do
+ActiveRecord::Schema.define(version: 2021_11_27_124634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourite_thing_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "favourite_thing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favourite_thing_id"], name: "index_favourite_thing_types_on_favourite_thing_id"
+  end
 
   create_table "favourite_things", force: :cascade do |t|
     t.string "name"
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 2021_11_26_171533) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "favourite_thing_types", "favourite_things"
   add_foreign_key "favourite_things", "users"
 end

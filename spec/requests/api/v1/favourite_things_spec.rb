@@ -60,7 +60,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
         
       end
 
-      context "and new favourite thing failed to be created " do
+      context "and new favourite thing failedbe created " do
         subject { post @favourite_things_url, params: {favourite_thing: {name: ''}}, headers: @headers } 
        
 
@@ -87,9 +87,9 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
 
     end
     
-    context "when user is not authenticated to access favourite thins" do
+    context "when user is not authenticated" do
       it "returns http status unauthorized" do
-        get @favourite_things_url
+        get @favourite_things_url, params: {page: 1}
         expect(response).to have_http_status(:unauthorized)  
       end
 
@@ -123,6 +123,58 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
       end
 
 
+      
+      
+    end
+    
+  end
+
+
+
+  describe "GET #show" do
+
+    before do 
+      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user
+
+      create :favourite_thing_type, name: "american eskimo", favourite_thing: favourite_thing
+    end
+    
+    context "when user is not authenticated" do
+      it "returns http status unauthorized" do
+        get '/api/v1/favourite_things/4'
+        expect(response).to have_http_status(:unauthorized)  
+      end
+
+    end
+
+    context "when user is authenticated," do
+      context "and favourite_things was found" do
+
+        before do 
+          get '/api/v1/favourite_things/4', headers: @headers
+          @json_body = JSON.parse(response.body)
+        end
+
+        it "returns proper json response of the favourite thing" do
+          expect(@json_body['favourite_thing']).to include({
+            'name' => 'dog'
+          })  
+        end
+
+
+        it "returns list of favourite_things types" do
+          expect(@json_body['favourite_thing_types'].first).to include({
+            'name' => 'american eskimo'
+          }) 
+        end
+        
+
+        it "returns https status :ok" do
+          expect(response).to have_http_status(:ok)  
+        end
+        
+        
+      end
       
       
     end

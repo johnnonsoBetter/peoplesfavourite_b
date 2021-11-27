@@ -1,5 +1,5 @@
 class Api::V1::FavouriteThingsController < ApplicationController
-    before_action :authenticate_api_v1_user!, only: [:create, :index]
+    before_action :authenticate_api_v1_user!, only: [:create, :index, :show]
 
     def create 
         favourite_thing = FavouriteThing.new favourite_thing_params
@@ -20,6 +20,16 @@ class Api::V1::FavouriteThingsController < ApplicationController
 
         render 'api/v1/favourite_things/index.json.jbuilder'
 
+    end
+
+
+    def show 
+
+        
+        @favourite_thing = current_api_v1_user.favourite_things.find_by_id(params[:id])
+
+      
+        render 'api/v1/favourite_things/show.json.jbuilder'
     end
 
 

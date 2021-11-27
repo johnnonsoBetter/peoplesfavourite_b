@@ -18,8 +18,11 @@ RSpec.describe FavouriteThing, type: :routing do
         
     end
 
+    describe "GET #show" do
+        it "routes api/v1/favourite_things to api/v1/favourite_things#show" do
+            expect(get '/api/v1/favourite_things/4').to route_to(id: "4", controller: "api/v1/favourite_things", action: "show")  
+        end
+        
+    end
 
-    
-    
-    
 end
