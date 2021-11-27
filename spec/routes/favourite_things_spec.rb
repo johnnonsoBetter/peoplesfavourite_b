@@ -25,4 +25,11 @@ RSpec.describe FavouriteThing, type: :routing do
         
     end
 
+
+    describe "DELETE #destroy" do 
+        it "routes api/v1/favourite_things to api/v1/favourite_things#destroy" do
+            expect(delete '/api/v1/favourite_things/4').to route_to(id: "4", controller: "api/v1/favourite_things", action: "destroy")  
+        end
+    end
+
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
 
-      resources :favourite_things, only: [:create, :index, :show]
+      resources :favourite_things, only: [:create, :index, :show, :destroy]
       resources :favourite_thing_types, only: [:create]
     end
 

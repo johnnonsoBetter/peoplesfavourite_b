@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-27T16:09:53+01:00">2021-11-27T16:09:53+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-27T16:22:44+01:00">2021-11-27T16:22:44+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.31
+         1.37
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>114</b> relevant lines,
-    <span class="green"><b>114</b> lines covered</span> and
+    <b>116</b> relevant lines,
+    <span class="green"><b>116</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -84,11 +84,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#b3d14d2c6d6cd164caf0d211011ea8dfe94aecba" class="src_link" title="app/controllers/api/v1/favourite_things_controller.rb">app/controllers/api/v1/favourite_things_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">50</td>
-            <td class="cell--number">21</td>
-            <td class="cell--number">21</td>
+            <td class="cell--number">56</td>
+            <td class="cell--number">23</td>
+            <td class="cell--number">23</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.00</td>
+            <td class="cell--number">2.26</td>
             
           </tr>
         
@@ -737,8 +737,8 @@
     
 
     <div class="t-line-summary">
-      <b>21</b> relevant lines.
-      <span class="green"><b>21</b> lines covered</span> and
+      <b>23</b> relevant lines.
+      <span class="green"><b>23</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -767,7 +767,7 @@
 
             
 
-            <code class="ruby">    before_action :authenticate_api_v1_user!, only: [:create, :index, :show]</code>
+            <code class="ruby">    before_action :authenticate_api_v1_user!, only: [:create, :index, :show, :destroy]</code>
           </li>
         </div>
       
@@ -778,7 +778,7 @@
 
             
 
-            <code class="ruby">    before_action :find_favourite_thing, only: :show</code>
+            <code class="ruby">    before_action :find_favourite_thing, only: [:show, :destroy]</code>
           </li>
         </div>
       
@@ -1025,35 +1025,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def show </code>
+            <code class="ruby">    def destroy </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="27">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="28">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">       @favourite_thing.destroy</code>
           </li>
         </div>
       
@@ -1064,7 +1064,7 @@
 
             
 
-            <code class="ruby">        </code>
+            <code class="ruby">         </code>
           </li>
         </div>
       
@@ -1075,7 +1075,7 @@
 
             
 
-            <code class="ruby">       </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1097,18 +1097,18 @@
 
             
 
-            <code class="ruby">      </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="33">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        render &#39;api/v1/favourite_things/show.json.jbuilder&#39;</code>
+            <code class="ruby">    def show </code>
           </li>
         </div>
       
@@ -1119,7 +1119,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1130,7 +1130,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        </code>
           </li>
         </div>
       
@@ -1141,18 +1141,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">       </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="37">
+            
             
 
             
 
-            <code class="ruby">    private </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1163,29 +1163,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="39">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    def find_favourite_thing</code>
+            <code class="ruby">        render &#39;api/v1/favourite_things/show.json.jbuilder&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="40">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="40">
+            
             
 
             
 
-            <code class="ruby">        @favourite_thing = current_api_v1_user.favourite_things.find_by_id(params[:id])</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1196,56 +1196,12 @@
 
             
 
-            <code class="ruby">        </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="42">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">        unless @favourite_thing </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">            render json: &quot;Favourite thing not found&quot;, status: :not_found</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -1256,29 +1212,95 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def favourite_thing_params</code>
+            <code class="ruby">    private </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="48">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="44">
+            
             
 
             
 
-            <code class="ruby">        params.require(:favourite_thing).permit(:name, :photo)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def find_favourite_thing</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="7" data-linenumber="46">
+            <span class="hits">7</span>
+            
+
+            
+
+            <code class="ruby">        @favourite_thing = current_api_v1_user.favourite_things.find_by_id(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">        </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="7" data-linenumber="48">
+            <span class="hits">7</span>
+            
+
+            
+
+            <code class="ruby">        unless @favourite_thing </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="49">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">            render json: &quot;Favourite thing not found&quot;, status: :not_found</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
             
             
 
@@ -1289,7 +1311,51 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="53">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def favourite_thing_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="54">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">        params.require(:favourite_thing).permit(:name, :photo)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
             
             
 
@@ -8372,7 +8438,7 @@
 
             
 
-            <code class="ruby">      resources :favourite_things, only: [:create, :index, :show]</code>
+            <code class="ruby">      resources :favourite_things, only: [:create, :index, :show, :destroy]</code>
           </li>
         </div>
       

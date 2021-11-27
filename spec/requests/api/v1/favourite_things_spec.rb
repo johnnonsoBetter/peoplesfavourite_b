@@ -190,5 +190,58 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
     end
     
   end
+
+
+  describe "DELETE #destroy" do
+
+    before do 
+      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user
+
+    end
+    
+    context "when user is not authenticated" do
+      it "returns http status unauthorized" do
+        delete '/api/v1/favourite_things/4'
+        expect(response).to have_http_status(:unauthorized)  
+      end
+
+    end
+
+    context "when user is authenticated," do
+      context "and favourite_thing was found" do
+
+        before do 
+          
+          delete '/api/v1/favourite_things/4', headers: @headers
+         
+        end
+
+
+        it "returns http status no content" do
+         
+         expect(response).to have_http_status(:no_content)
+        end
+
+        it "delete the favourite thing" do
+         
+          expect(FavouriteThing.find_by_id(4)).to eq(nil)
+        end
+        
+      end
+
+
+      context "and favourite thing could not be found" do
+        it "returns http status not_found" do
+          delete '/api/v1/favourite_things/24', headers: @headers
+          expect(response).to have_http_status(:not_found)  
+        end
+        
+      end
+      
+      
+      
+    end
+    
+  end
   
 end
