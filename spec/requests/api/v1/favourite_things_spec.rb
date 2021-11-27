@@ -60,11 +60,11 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
         
       end
 
-      context "and new favourite thing failedbe created " do
+      context "and new favourite thing failed to be created " do
         subject { post @favourite_things_url, params: {favourite_thing: {name: ''}}, headers: @headers } 
        
 
-        it "returns https status :created" do
+        it "returns https status :unprocessable_entity" do
           subject
           expect(response).to have_http_status(:unprocessable_entity)
         end
@@ -148,7 +148,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
     end
 
     context "when user is authenticated," do
-      context "and favourite_things was found" do
+      context "and favourite_thing was found" do
 
         before do 
           get '/api/v1/favourite_things/4', headers: @headers
@@ -175,6 +175,16 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
         
         
       end
+
+
+      context "and favourite thing could not be found" do
+        it "returns http status not_found" do
+          get '/api/v1/favourite_things/24', headers: @headers
+          expect(response).to have_http_status(:not_found)  
+        end
+        
+      end
+      
       
       
     end

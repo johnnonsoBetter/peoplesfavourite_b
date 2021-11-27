@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_27_124634) do
+ActiveRecord::Schema.define(version: 2021_11_27_141236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_27_124634) do
     t.bigint "favourite_thing_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "photo"
     t.index ["favourite_thing_id"], name: "index_favourite_thing_types_on_favourite_thing_id"
   end
 
