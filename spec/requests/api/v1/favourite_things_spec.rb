@@ -5,6 +5,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
   before do 
      
     @user = create :user, email: "mak3er@gmail.com", password: "password"
+    User.find_each(&:save)
 
     @login_url = '/api/v1/auth/sign_in'
     @favourite_things_url = '/api/v1/favourite_things'
@@ -25,6 +26,8 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
       'client' => response.headers['client'],
       'uid' => response.headers['uid']
     }
+
+    
 
   end
 

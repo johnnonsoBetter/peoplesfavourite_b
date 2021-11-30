@@ -106,6 +106,8 @@ describe "POST #create" do
     before do 
       favourite_thing = create :favourite_thing, name: "dog", user: @user
 
+    
+
       create :favourite_thing_type, name: "eskimo", id: 4, favourite_thing: favourite_thing
 
     end

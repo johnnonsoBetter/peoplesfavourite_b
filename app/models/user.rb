@@ -6,8 +6,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+  extend FriendlyId
 
   validates :name, presence: true
   has_many :favourite_things
+  friendly_id :name, use: :slugged
+
+  acts_as_liker
+  
 
 end

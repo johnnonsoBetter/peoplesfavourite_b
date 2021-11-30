@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
  gem "figaro"
  gem 'pg_search'
+ gem 'friendly_id', '~> 5.4.0'
 
 
 group :development, :test do

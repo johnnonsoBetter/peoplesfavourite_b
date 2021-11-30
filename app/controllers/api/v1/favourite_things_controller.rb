@@ -43,7 +43,9 @@ class Api::V1::FavouriteThingsController < ApplicationController
     private 
 
     def find_favourite_thing
-        @favourite_thing = current_api_v1_user.favourite_things.find_by_id(params[:id])
+
+        
+        @favourite_thing = current_api_v1_user.favourite_things.friendly.find_by_id(params[:id])
         
         unless @favourite_thing 
             render json: "Favourite thing not found", status: :not_found
