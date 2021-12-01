@@ -1,5 +1,5 @@
 class Api::V1::FavouriteThingsController < ApplicationController
-    before_action :authenticate_api_v1_user!, only: [:create, :index, :show, :destroy]
+    before_action :authenticate_api_v1_user!, only: [:create, :show, :destroy]
     before_action :find_favourite_thing, only: [:show, :destroy]
 
     def create 
@@ -17,7 +17,7 @@ class Api::V1::FavouriteThingsController < ApplicationController
 
     def index 
 
-        @favourite_things = current_api_v1_user.favourite_things.page(params[:page])
+        @favourite_things = FavouriteThing.all.page(params[:page])
 
         render 'api/v1/favourite_things/index.json.jbuilder'
 
@@ -31,11 +31,6 @@ class Api::V1::FavouriteThingsController < ApplicationController
 
 
     def show 
-
-        
-       
-
-      
         render 'api/v1/favourite_things/show.json.jbuilder'
     end
 

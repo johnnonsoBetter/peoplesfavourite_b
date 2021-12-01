@@ -728,6 +728,12 @@
           1,
           1,
           null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -886,11 +892,6 @@
           null,
           null,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
           3,
           null,
           null,
@@ -912,8 +913,42 @@
           null,
           null
         ]
+      },
+      "/root/peoplesfavourite_b/app/controllers/api/v1/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          1,
+          8,
+          null,
+          null,
+          8,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1638273441
+    "timestamp": 1638382849
   }
 }

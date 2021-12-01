@@ -89,18 +89,9 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
       end
 
     end
+   
+
     
-    context "when user is not authenticated" do
-      it "returns http status unauthorized" do
-        get @favourite_things_url, params: {page: 1}
-        expect(response).to have_http_status(:unauthorized)  
-      end
-
-    end
-
-
-    context "when user is authenticated," do
-
       before do 
         get @favourite_things_url, params: {page: 1}, headers: @headers
         @json_body = JSON.parse(response.body)
@@ -126,9 +117,6 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
       end
 
 
-      
-      
-    end
     
   end
 
