@@ -24,17 +24,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
  gem 'rack-cors'
-
-
  gem 'devise_token_auth'
-
  gem 'devise'
- gem "socialization"
 
  gem "figaro"
  gem 'pg_search'
  gem 'friendly_id', '~> 5.4.0'
-
+ gem 'acts_as_votable'
+ gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,7 +40,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'simplecov', require: false, group: :test
   gem 'shoulda-matchers'
-  gem 'kaminari'
+  
 end
 
 group :development do

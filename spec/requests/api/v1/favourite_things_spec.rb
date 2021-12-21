@@ -127,7 +127,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
     before do 
       favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user
 
-      create :favourite_thing_type, name: "american eskimo", favourite_thing: favourite_thing
+     
     end
     
     context "when user is not authenticated" do
@@ -151,14 +151,6 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
             'name' => 'dog'
           })  
         end
-
-
-        it "returns list of favourite_things types" do
-          expect(@json_body['favourite_thing_types'].first).to include({
-            'name' => 'american eskimo'
-          }) 
-        end
-        
 
         it "returns https status :ok" do
           expect(response).to have_http_status(:ok)  

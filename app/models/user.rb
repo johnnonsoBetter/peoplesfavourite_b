@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   extend FriendlyId
 
   validates :name, presence: true
-  has_many :favourite_things
+  has_many :favourite_things, dependent: :destroy
   friendly_id :name, use: :slugged
 
-  acts_as_liker
+  
   
 
 end
