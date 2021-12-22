@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_115019) do
+ActiveRecord::Schema.define(version: 2021_12_22_123241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favourite_things", force: :cascade do |t|
-    t.string "name"
-    t.string "photo"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+    t.bigint "thing_id"
+    t.string "name"
     t.index ["slug"], name: "index_favourite_things_on_slug"
+    t.index ["thing_id"], name: "index_favourite_things_on_thing_id"
     t.index ["user_id"], name: "index_favourite_things_on_user_id"
   end
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_12_21_115019) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "img"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_12_21_115019) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "favourite_things", "things"
   add_foreign_key "favourite_things", "users"
   add_foreign_key "thing_types", "things"
 end

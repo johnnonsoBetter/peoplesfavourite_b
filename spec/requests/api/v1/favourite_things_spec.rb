@@ -6,6 +6,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
      
     @user = create :user, email: "mak3er@gmail.com", password: "password"
     User.find_each(&:save)
+    thing = create :thing, id: 2, name: "toys"
 
     @login_url = '/api/v1/auth/sign_in'
     @favourite_things_url = '/api/v1/favourite_things'
@@ -16,7 +17,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
     }
 
     @favourite_things_params = {
-      favourite_thing: {name: 'cat'}
+      favourite_thing: {name: 'cat', thing_id: 2}
     }
 
     post @login_url, params: @user_params
@@ -57,6 +58,7 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
 
         it "returns https status :created" do
           subject
+          
           expect(response).to have_http_status(:created)
         end
         
@@ -84,8 +86,9 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
   describe "GET #index" do
 
     before do 
+      thing = create :thing, name: "toys"
       30.times do |n| 
-        create :favourite_thing, name: "name#{n}", user: @user
+        create :favourite_thing, name: "name#{n}", user: @user, thing: thing
       end
 
     end
@@ -107,13 +110,13 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
 
       it "returns proper last json response of the list of favourite things " do
         expect(@json_body.last).to include({
-          'name' => 'name9',
+          'name' => 'name29',
           
         })
       end
 
       it "returns proper lenght of the list of favourite things returned as json response " do
-        expect(@json_body.length).to eq(10)
+        expect(@json_body.length).to eq(30)
       end
 
 
@@ -125,7 +128,8 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
   describe "GET #show" do
 
     before do 
-      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user
+      thing = create :thing, name: "toys"
+      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user, thing: thing
 
      
     end
@@ -176,9 +180,10 @@ RSpec.describe "Api::V1::FavouriteThings", type: :request do
 
 
   describe "DELETE #destroy" do
-
+  
     before do 
-      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user
+      thing = create :thing, name: "toys"
+      favourite_thing = create :favourite_thing, name: "dog", id: 4, user: @user, thing: thing
 
     end
     

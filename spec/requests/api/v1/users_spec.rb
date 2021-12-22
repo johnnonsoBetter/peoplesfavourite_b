@@ -85,8 +85,9 @@ RSpec.describe "Api::V1::Users", type: :request do
 
       before do 
         @user_favourite_things_url = '/api/v1/users/paul/favourite_things/'
+        thing = create :thing, name: "toys"
         30.times do |n| 
-          create :favourite_thing, name: "name#{n}", user: @user
+          create :favourite_thing, name: "name#{n}", user: @user, thing: thing
         end
 
       end
@@ -153,8 +154,9 @@ RSpec.describe "Api::V1::Users", type: :request do
 
     before do 
       @user_url = '/api/v1/users/paul'
+      thing = create :thing, name: "toys"
       10.times do |n| 
-        create :favourite_thing, name: "name#{n}", user: @user
+        create :favourite_thing, name: "name#{n}", user: @user, thing: thing
       end
 
     end
