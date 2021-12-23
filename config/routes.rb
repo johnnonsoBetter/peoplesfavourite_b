@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
       resources :favourite_things, only: [:create, :index, :show, :destroy]
       resources :thing_types, only: :create
-      resources :things, only: :index
+      resources :things, only: [:index, :show]
 
       resources :users, only: [:index, :show] do 
         member do 

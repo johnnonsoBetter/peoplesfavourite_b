@@ -80,4 +80,56 @@ RSpec.describe "Api::V1::Things", type: :request do
     
     
   end
+
+
+  describe "GET #show" do
+
+    before do 
+      thing = create :thing, id: 4, name: "toys"
+     create :thing_type, name: "dog", thing: thing
+
+     
+    end
+    
+    context "when user is not authenticated" do
+      it "returns http status unauthorized" do
+        get '/api/v1/things/4'
+        expect(response).to have_http_status(:unauthorized)  
+      end
+
+    end
+
+    context "when user is authenticated," do
+      context "and thing was found" do
+
+        before do 
+          get '/api/v1/things/4', headers: @headers
+          @json_body = JSON.parse(response.body)
+        end
+
+        it "returns proper json response of the  thing" do
+          expect(@json_body['thing']).to include({
+            'name' => 'toys'
+          })  
+        end
+
+        it "returns https status :ok" do
+          expect(response).to have_http_status(:ok)  
+        end
+      end
+
+
+      context "and  thing could not be found" do
+        it "returns http status not_found" do
+          get '/api/v1/things/24', headers: @headers
+          expect(response).to have_http_status(:not_found)  
+        end
+        
+      end
+      
+      
+      
+    end
+    
+  end
 end
