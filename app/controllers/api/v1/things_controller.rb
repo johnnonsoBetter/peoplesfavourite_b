@@ -13,6 +13,8 @@ class Api::V1::ThingsController < ApplicationController
     end
 
     def show 
+
+        @thing_types = @thing.thing_types.page(params[:page])
         render 'api/v1/things/show.json.jbuilder'
     end
 
