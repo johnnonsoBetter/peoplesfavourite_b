@@ -12,4 +12,5 @@ RSpec.describe "ThingTypes", type: :routing do
        
     end
 
+
 end

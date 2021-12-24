@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :favourite_things, dependent: :destroy
   friendly_id :name, use: :slugged
 
-  
+  acts_as_voter
   
 
 end
