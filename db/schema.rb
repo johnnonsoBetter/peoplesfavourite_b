@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_200247) do
+ActiveRecord::Schema.define(version: 2021_12_26_142402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_12_23_200247) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "guesses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "completed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "thing_type_id", null: false
+    t.index ["thing_type_id"], name: "index_guesses_on_thing_type_id"
+    t.index ["user_id"], name: "index_guesses_on_user_id"
   end
 
   create_table "thing_types", force: :cascade do |t|
@@ -98,7 +108,18 @@ ActiveRecord::Schema.define(version: 2021_12_23_200247) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
+  create_table "words", force: :cascade do |t|
+    t.string "content"
+    t.bigint "guess_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guess_id"], name: "index_words_on_guess_id"
+  end
+
   add_foreign_key "favourite_things", "things"
   add_foreign_key "favourite_things", "users"
+  add_foreign_key "guesses", "thing_types"
+  add_foreign_key "guesses", "users"
   add_foreign_key "thing_types", "things"
+  add_foreign_key "words", "guesses"
 end

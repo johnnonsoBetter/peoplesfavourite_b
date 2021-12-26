@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :things, only: [:index, :show]
 
       put 'thing_types/:id', to: 'thing_types#like'
+
+      get 'guesses/:thing_type_id', to: 'guesses#show'
      
 
       resources :users, only: [:index, :show] do 

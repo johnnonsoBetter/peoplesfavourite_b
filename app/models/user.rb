@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   has_many :favourite_things, dependent: :destroy
+  has_many :guesses, dependent: :destroy
   friendly_id :name, use: :slugged
 
   acts_as_voter
