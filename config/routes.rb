@@ -9,10 +9,9 @@ Rails.application.routes.draw do
       resources :things, only: [:index, :show]
 
       put 'thing_types/:id', to: 'thing_types#like'
-
       get 'guesses/:thing_type_id', to: 'guesses#show'
-     
-
+      post 'words', to: 'words#create'
+      
       resources :users, only: [:index, :show] do 
         member do 
           get 'favourite_things', to: 'users#favourite_things'
