@@ -31,12 +31,14 @@ class Api::V1::WordsController < ApplicationController
     
                 end
 
+                #update the attribute completed of the guess when user has succesfully completed all guess words 
+                @guess.toggle!(:completed) if completed_guess? (to_guess - @guess.words.map{|w| w.content.downcase}) 
+
 
 
             end
 
-            #update the attribute completed of the guess when user has succesfully completed all guess words 
-            @guess.toggle!(:completed) if completed_guess? (to_guess - @guess.words.map{|w| w.content.downcase}) 
+            
 
             
 

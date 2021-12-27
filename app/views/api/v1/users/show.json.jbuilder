@@ -1,6 +1,6 @@
 json.user do 
 
-    json.(@user, :id, :name)
+    json.(@user, :id, :name, :score)
     json.favourite_things @user.favourite_things.includes(:thing) do |favourite_thing| 
        
         json.id favourite_thing.id

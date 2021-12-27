@@ -1,4 +1,5 @@
 json.set! :score, @score
+json.set! :total_score, @guess.user.score
 
 json.guess do 
     

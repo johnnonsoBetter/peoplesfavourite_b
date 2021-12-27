@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-27T17:02:49+01:00">2021-12-27T17:02:49+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-27T17:03:58+01:00">2021-12-27T17:03:58+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -73,7 +73,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ad276b3c6cba48c50921c76103e8697ae62342b3" class="src_link" title="app/controllers/api/v1/words_controller.rb">app/controllers/api/v1/words_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">66</td>
+            <td class="cell--number">68</td>
             <td class="cell--number">22</td>
             <td class="cell--number">22</td>
             <td class="cell--number">0</td>
@@ -747,18 +747,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">                #update the attribute completed of the guess when user has succesfully completed all guess words </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
-            
-            
-
+          <li class="covered" data-hits="22" data-linenumber="35">
+            <span class="hits">22</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">                @guess.toggle!(:completed) if completed_guess? (to_guess - @guess.words.map{|w| w.content.downcase}) </code>
           </li>
         </div>
       
@@ -769,7 +769,7 @@
 
             
 
-            <code class="ruby">            end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -791,18 +791,18 @@
 
             
 
-            <code class="ruby">            #update the attribute completed of the guess when user has succesfully completed all guess words </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="22" data-linenumber="39">
-            <span class="hits">22</span>
+          <li class="never" data-hits="" data-linenumber="39">
+            
             
 
             
 
-            <code class="ruby">            @guess.toggle!(:completed) if completed_guess? (to_guess - @guess.words.map{|w| w.content.downcase}) </code>
+            <code class="ruby">            end</code>
           </li>
         </div>
       
@@ -846,7 +846,7 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">            </code>
           </li>
         </div>
       
@@ -868,7 +868,7 @@
 
             
 
-            <code class="ruby">        </code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -890,18 +890,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="48">
-            <span class="hits">7</span>
+          <li class="never" data-hits="" data-linenumber="48">
+            
             
 
             
 
-            <code class="ruby">        render &#39;api/v1/words/create.json.jbuilder&#39;, status: :created</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -917,13 +917,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
-            
-            
-
+          <li class="covered" data-hits="7" data-linenumber="50">
+            <span class="hits">7</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        render &#39;api/v1/words/create.json.jbuilder&#39;, status: :created</code>
           </li>
         </div>
       
@@ -934,7 +934,7 @@
 
             
 
-            <code class="ruby">        </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -956,7 +956,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        </code>
           </li>
         </div>
       
@@ -978,7 +978,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -994,13 +994,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="57">
+            
             
 
             
 
-            <code class="ruby">    private </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1022,34 +1022,12 @@
 
             
 
-            <code class="ruby">    def words_for(word)</code>
+            <code class="ruby">    private </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="60">
-            <span class="hits">14</span>
-            
-
-            
-
-            <code class="ruby">        word.downcase.split(&quot; &quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
@@ -1060,29 +1038,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="61">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def completed_guess?(all_guess)</code>
+            <code class="ruby">    def words_for(word)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="64">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="14" data-linenumber="62">
+            <span class="hits">14</span>
             
 
             
 
-            <code class="ruby">        all_guess.empty?</code>
+            <code class="ruby">        word.downcase.split(&quot; &quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -1093,7 +1071,51 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
+          <li class="never" data-hits="" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def completed_guess?(all_guess)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="7" data-linenumber="66">
+            <span class="hits">7</span>
+            
+
+            
+
+            <code class="ruby">        all_guess.empty?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
             
             
 
