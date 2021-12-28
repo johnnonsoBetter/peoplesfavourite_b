@@ -1,13 +1,13 @@
 # PeoplesFavourite-Backend
 
-PeoplesFavourite-Backend is a backend application that provides the PeoplesFavourite-Frontend json data to consume through its restful api services.
+PeoplesFavourite-Backend is a backend application that provides the Peoplefav, json data to consume through its restful api services.
 
 
 ## The Full Application
 PeopleFav is an application that allows users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here.    [https://peoplefav.herokuapp.com/](https://peoplefav.herokuapp.com/)
 
 ## Note.
-This application provides data from its front-end application  [https://github.com/johnnonsoBetter/peoplefav](https://github.com/johnnonsoBetter/peoplefav)
+This application provides data for its front-end application  [https://github.com/johnnonsoBetter/peoplefav](https://github.com/johnnonsoBetter/peoplefav)
 
 
 ## Important Technologies Utilized
